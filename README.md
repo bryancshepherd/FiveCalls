@@ -1,6 +1,7 @@
 To do:
-- Add filters to show all categories, top 5, and top 10
-- Also add a table with that information
+- ~~Add filters to show all categories, top 5, and top 10~~
+- add functionality to save all data locally and version the last two weeks
+- also add a table with that information
 - add button to switch between last 48 hours, last 7 days, and last month
 - make display times eastern
 - prettify text on charts a bit
