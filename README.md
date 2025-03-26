@@ -36,8 +36,8 @@ crontab -e
 
 In the file editor that opens
 
-* * * * * /bin/bash -c 'source home/bryan/Projects/FiveCalls/.fivecalls/bin/activate && python home/bryan/Projects/FiveCalls/fetch_data.py >> home/bryan/Projects/FiveCalls/.tmp/cron_fetch_data_logfile.log 2>&1'
+0 * * * * cd /home/bryan/Projects/FiveCalls && /bin/bash -c 'source .fivecalls/bin/activate && python fetch_data.py && deactivate >> .tmp/cron_fetch_data_logfile.log 2>&1'
+0 */2 * * * cd /home/bryan/Projects/FiveCalls && /bin/bash -c 'source .fivecalls/bin/activate && python create_charts.py && deactivate >> .tmp/cron_create_charts_logfile.log 2>&1'
 
-5 * * * * /bin/bash -c 'source home/bryan/Projects/FiveCalls/.fivecalls/bin/activate && python home/bryan/Projects/FiveCalls/create_charts.py >> home/bryan/Projects/FiveCalls/.tmp/cron_create_charts_logfile.log 2>&1'
 
 
