@@ -9,6 +9,7 @@ import pandas as pd
 url = 'https://api.5calls.org/v1/issues'
 
 def parse_json_to_db(data, utc_time, db_name="data/fivecalls.db", table_name="flat_data"):
+    os.makedirs("data", exist_ok=True)
     df = pd.json_normalize(data)
     df['inserted_at_utc'] = utc_time
     df['categories'] = df['categories'].apply(json.dumps)

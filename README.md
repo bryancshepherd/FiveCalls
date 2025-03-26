@@ -18,10 +18,10 @@ mkdir ~/my_project
 cd ~/my_project
 
 # Create the virtual environment
-python3 -m venv venv
+python3 -m venv ".fivecalls"
 
 2. Activate the environment
-source venv/bin/activate
+source .fivecalls/bin/activate
 
 3. Install dependencies
 pip install -r requirements.txt
