@@ -28,11 +28,16 @@ pip install -r requirements.txt
 
 4. Create script
 
+4b. Create .tmp directory in project file if it doesn't exist
+
 5. Create cron job in editor
 
 crontab -e
 
-In the file that opens
+In the file editor that opens
 
-* * * * * /bin/bash -c 'source /home/pi/my_project/venv/bin/activate && python /home/pi/my_project/my_script.py'
+* * * * * /bin/bash -c 'source home/bryan/Projects/FiveCalls/.fivecalls/bin/activate && python home/bryan/Projects/FiveCalls/fetch_data.py >> home/bryan/Projects/FiveCalls/.tmp/cron_fetch_data_logfile.log 2>&1'
+
+5 * * * * /bin/bash -c 'source home/bryan/Projects/FiveCalls/.fivecalls/bin/activate && python home/bryan/Projects/FiveCalls/create_charts.py >> home/bryan/Projects/FiveCalls/.tmp/cron_create_charts_logfile.log 2>&1'
+
 

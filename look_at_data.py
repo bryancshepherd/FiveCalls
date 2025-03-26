@@ -18,3 +18,8 @@ tail_df = pd.read_sql_query("SELECT * FROM flat_data ORDER BY id DESC LIMIT 25",
 conn.close()
 print("Tail:" , tail_df)
 print("Tail columns:", tail_df.columns)
+
+conn = sqlite3.connect('data/fivecalls.db')
+all_df = pd.read_sql_query("SELECT * FROM flat_data", conn)
+conn.close()
+print("All data row count:" , len(all_df))
