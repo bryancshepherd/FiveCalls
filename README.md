@@ -1,15 +1,18 @@
 To do:
 - ~~Add filters to show all categories, top 5, and top 10~~
 - add functionality to save all data locally and version the last two weeks
-- add auto commit and push to git to cron
-- also add a table with that information
+- add auto commit and push to git with cron
+- add a table with chart information
 - add button to switch between last 48 hours, last 7 days, and last month
 - make display times eastern
 - prettify text on charts a bit
+- add cron tab creation to a python script?
 
-How to set up cron jobs on Rasp Pi:
+How to install:
 
-1. Create the Virtual Environment
+1. Create a 'fivecalls' user on the host system; log into that account
+
+2. Create the python virtual environment
 
 First, create a virtual environment where your dependencies will be installed.
 
@@ -22,24 +25,22 @@ cd ~/my_project
 # Create the virtual environment
 python3 -m venv ".fivecalls"
 
-2. Activate the environment
+3. Activate the environment
 source .fivecalls/bin/activate
 
-3. Install dependencies
+4. Install dependencies
 pip install -r requirements.txt
 
-4. Create script
+5. Create .tmp directory in project file if it doesn't exist
 
-4b. Create .tmp directory in project file if it doesn't exist
-
-5. Create cron job in editor
+6. Create cron job in editor
 
 crontab -e
 
-In the file editor that opens
+In the file editor that opens, something along the lines of the below, depending on how often the scripts should run:
 
-0 * * * * cd /home/bryan/Projects/FiveCalls && /bin/bash -c 'source .fivecalls/bin/activate && python fetch_data.py && deactivate >> .tmp/cron_fetch_data_logfile.log 2>&1'
-0 */2 * * * cd /home/bryan/Projects/FiveCalls && /bin/bash -c 'source .fivecalls/bin/activate && python create_charts.py && deactivate >> .tmp/cron_create_charts_logfile.log 2>&1'
+0 * * * * cd /home/fivecalls/Projects/FiveCalls && /bin/bash -c 'source .fivecalls/bin/activate && python fetch_data.py && deactivate >> .tmp/cron_fetch_data_logfile.log 2>&1'
+0 */2 * * * cd /home/fivecalls/Projects/FiveCalls && /bin/bash -c 'source .fivecalls/bin/activate && python create_charts.py && deactivate >> .tmp/cron_create_charts_logfile.log 2>&1'
 
 
 
