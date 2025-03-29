@@ -8,7 +8,7 @@ import pandas as pd
 
 url = 'https://api.5calls.org/v1/issues'
 
-backup_path = '/home/Projects/fivecallsdatabackup/'
+backup_path = '/home/bryan/Projects/fivecallsdatabackup/'
 
 def parse_json_to_db(data, utc_time, db_name="fivecalls.db", table_name="flat_data", backup_path=backup_path):
     os.makedirs("data", exist_ok=True)
